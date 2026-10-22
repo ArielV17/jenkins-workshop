@@ -1,4 +1,8 @@
+
+"""Calculates gym membership costs for requirements R1, R2, R3 and R7."""
+
 from decimal import Decimal, ROUND_HALF_UP
+
 
 PLANS = {
     "BASIC": 30,
@@ -17,7 +21,7 @@ PREMIUM_EXTRAS = {"SPA"}
 
 
 def calculate_cost(plan: str, extras: list[str], members: int) -> int:
-    """Calculate the membership subtotal or return -1 if invalid."""
+    """Return the membership subtotal or -1 if the selection is invalid."""
 
     # R1: Validate the selected plan.
     if plan not in PLANS:
@@ -49,7 +53,7 @@ def calculate_cost(plan: str, extras: list[str], members: int) -> int:
     # R7: Round half up at the end.
     total = Decimal(str(subtotal)).quantize(
         Decimal("1"),
-        rounding=ROUND_HALF_UP
+        rounding=ROUND_HALF_UP,
     )
 
     return int(total)
