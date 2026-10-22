@@ -1,5 +1,5 @@
 
-"""Calculates gym membership costs for requirements R1, R2, R3 and R7."""
+"""Calculates the gym membership costs for requirements R1, R2, R3 and R7."""
 
 from decimal import Decimal, ROUND_HALF_UP
 
