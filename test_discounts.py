@@ -9,7 +9,7 @@ from discounts import (
 
 
 def test_group_discount_applied():
-    assert apply_group_discount(100.0, 2) == pytest.approx(90.0)
+    assert apply_group_discount(100.0, 2) == pytest.approx(999.0)
     assert apply_group_discount(200.0, 3) == pytest.approx(180.0)
 
 
