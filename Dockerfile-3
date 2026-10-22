@@ -1,0 +1,16 @@
+FROM jenkins/jenkins:lts-jdk21
+
+USER root
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+       python3 python3-venv git \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN python3 -m venv /opt/workshop-venv \
+    && /opt/workshop-venv/bin/pip install --no-cache-dir \
+       pytest pylint
+
+ENV PATH="/opt/workshop-venv/bin:${PATH}"
+
+USER jenkins
